@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package todo.v1;
+
+option go_package = "github.com/dillendev/training-connect-go/gen/todo/v1;todov1";
+
+service TodoService {
+  rpc ListTasks(ListTasksRequest) returns (ListTasksResponse) {}
+}
+
+message ListTasksRequest {
+}
+
+message ListTasksResponse {
+    message Task {
+        int32 id    = 1;
+        string name = 2;
+    }
+
+    repeated Task tasks = 1;
+}
